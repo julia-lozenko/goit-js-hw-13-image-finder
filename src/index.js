@@ -18,6 +18,9 @@ const loadMoreBtn = new LoadMoreBtn({
   hidden: true,
 });
 
+const searchButtonRef = document.querySelector('.search-btn');
+searchButtonRef.addEventListener('click', fetchImages)
+
 searchRF.addEventListener('input', debounce(onSearchForm, 500));
 galleryRF.addEventListener('click', onOpenModal);
 
@@ -39,8 +42,6 @@ async function onSearchForm(event) {
 
     api.resetPage();
     galleryRF.innerHTML = '';
-
-    fetchImages();
   } catch (error) {
     console.log(error);
   }
